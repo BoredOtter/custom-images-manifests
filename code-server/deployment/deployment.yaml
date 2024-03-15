@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: code-server
+spec:
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8443
+  selector:
+    app: code-server
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: code-server
+spec:
+  selector:
+    matchLabels:
+      app: code-server
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: code-server
+    spec:
+      containers:
+      - image: ksw2137/code-server:fccb63b387c6a7715dc6ac4962289dfc33aef360
+        name: code-server
+        envFrom:
+        - secretRef:
+            name: code-server
+        ports:
+        - containerPort: 8443
+          name: code-server
+        volumeMounts:
+        - name: code-server
+          mountPath: /config
+      volumes:
+      - name: code-server
+        persistentVolumeClaim:
+          claimName: code-server
