@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  auth: YWRtaW46JGFwcjEkTmI4L3ZpTnokdy9UUU4yWTc3aFl6WlQ3eU55WDc0Lwo=
+kind: Secret
+metadata:
+  name: si-basic-auth
+type: Opaque
