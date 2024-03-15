@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/auth-type: basic
     nginx.ingress.kubernetes.io/auth-secret: si-basic-auth
     nginx.ingress.kubernetes.io/auth-realm: 'Authentication Required'
-  name: code-server
+  name: si-notepad
 spec:
   tls:
   - hosts:
@@ -22,6 +22,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: code-server
+            name: si-notepad
             port:
               number: 80
