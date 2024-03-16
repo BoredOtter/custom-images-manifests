@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: si-notepad
-        image:  ksw2137/si-notepad:dc75b6b85d759843f25b667ae161faf6aa60979e
+        image:  ksw2137/si-notepad:3a43609ffa847e429bada6f652e02879640cbe8a
         ports:
         - containerPort: 8888
 ---
