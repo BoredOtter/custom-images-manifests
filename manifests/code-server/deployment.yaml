@@ -27,7 +27,7 @@ spec:
         app: code-server
     spec:
       containers:
-      - image: ksw2137/code-server:00dc22c3e876f9bcd60075bf8ca300218513d2ee
+      - image: ksw2137/code-server:381eb6234a8c5d3135b0ebab3d596c6d8b27144e
         name: code-server
         envFrom:
         - secretRef:
@@ -42,3 +42,4 @@ spec:
       - name: code-server
         persistentVolumeClaim:
           claimName: code-server
+          
