@@ -27,7 +27,7 @@ spec:
         app: code-server
     spec:
       containers:
-      - image: ksw2137/code-server:381eb6234a8c5d3135b0ebab3d596c6d8b27144e
+      - image: ksw2137/code-server:62014ccdafa729b55bc7a0415c07939490bfb20e
         name: code-server
         envFrom:
         - secretRef:
