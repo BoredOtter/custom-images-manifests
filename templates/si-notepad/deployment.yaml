@@ -26,14 +26,3 @@ spec:
       - name: si-notepad-storage
         persistentVolumeClaim:
           claimName: si-notepad
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: si-notepad
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 5Gi
