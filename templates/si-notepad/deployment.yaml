@@ -16,19 +16,24 @@ spec:
     spec:
       containers:
       - name: si-notepad
-        image:  ksw2137/si-notepad:__TAG__
+        image: ksw2137/si-notepad:__TAG__
         ports:
         - containerPort: 8888
+        volumeMounts:
+        - name: si-notepad-storage
+          mountPath: /home/jupyter
+      volumes:
+      - name: si-notepad-storage
+        persistentVolumeClaim:
+          claimName: si-notepad
 ---
 apiVersion: v1
-kind: Service
+kind: PersistentVolumeClaim
 metadata:
   name: si-notepad
 spec:
-  selector:
-    app: si-notepad
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8888
-  type: ClusterIP
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
